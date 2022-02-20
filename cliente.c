@@ -29,12 +29,7 @@ int main(int argc, char **argv){
   cliente.sin_family = AF_INET; //asignacion del protocolo
   cliente.sin_port = htons(puerto); //asignacion del puerto
   bcopy((char *)servidor->h_addr, (char *)&cliente.sin_addr.s_addr, sizeof(servidor->h_length));
-  //bcopy(); copia los datos del primer elemendo en el segundo con el tamaño máximo 
-  //del tercer argumento.
 
-
-  //cliente.sin_addr = *((struct in_addr *)servidor->h_addr); //<--para empezar prefiero que se usen
-  //inet_aton(argv[1],&cliente.sin_addr); //<--alguna de estas dos funciones
   if(connect(conexion,(struct sockaddr *)&cliente, sizeof(cliente)) < 0)
   { //conectando con el host
     printf("Error conectando con el host\n");
