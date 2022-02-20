@@ -41,7 +41,6 @@ int main(int argc, char **argv){
   printf("Conectando con %s:%d\n", inet_ntoa(cliente.sin_addr),htons(cliente.sin_port));
   if(recv(conexion_cliente, buffer, 100, 0) < 0)
   { //Comenzamos a recibir datos del cliente
-    //Si recv() recibe 0 el cliente ha cerrado la conexion. Si es menor que 0 ha habido algún error.
     printf("Error al recibir los datos\n");
     close(conexion_servidor);
     return 1;
